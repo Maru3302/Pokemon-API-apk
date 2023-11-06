@@ -36,7 +36,7 @@ export default function HomeScreen({ navigation }) {
 
   const handleSearch = () => {
     if (searchTerm) {
-      const pokemonName = searchTerm.toLowerCase();
+      const pokemonName = searchTerm.toLowerCase().trim;
       buscarPokemon(pokemonName)
         .then((pokemonEncontrado) => {
           if (pokemonEncontrado) {

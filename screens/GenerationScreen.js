@@ -4,6 +4,7 @@ import axios from 'axios';
 
 export default function GenerationScreen({ route, navigation }) {
   const { generation } = route.params;
+  const [pageState,setPageState] = useState(1);
   const [pokemonType, setPokemonType] = useState('');
   const [pokemonList, setPokemonList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -145,7 +146,7 @@ export default function GenerationScreen({ route, navigation }) {
       {paginatedPokemonList.map((item) => (
         <TouchableOpacity
           key={item.name}
-          style={{ width: '50%', padding: 5, alignItems: 'center' }}
+          style={{ width: '50%', padding: 10, alignItems: 'center'}}
           onPress={async () => {
             const pokemon = await buscarPokemon(item.name);
             if (pokemon) {
@@ -188,6 +189,13 @@ export default function GenerationScreen({ route, navigation }) {
                 setShowSortOptions(false);
               }}
             />
+            <Button
+              title="Cancelar"
+              onPress={() => {
+                setSortBy(sortBy);
+                setShowSortOptions(false);
+              }}
+            />
           </View>
         </View>
       </Modal>
@@ -202,9 +210,17 @@ export default function GenerationScreen({ route, navigation }) {
                 onPress={() => {
                   setCurrentPage(page);
                   setShowPageOptions(false);
+                  setPageState(page);
                 }}
               />
             ))}
+            <Button
+              title='Cancelar'
+              onPress={() => {
+                setCurrentPage(pageState);
+                setShowPageOptions(false);
+              }}
+            />
           </View>
         </View>
       </Modal>

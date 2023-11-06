@@ -179,13 +179,15 @@ const getTypeImage = (type) => {
       marginTop:100,
     },
     name: {
-      fontSize: 24,
+      fontSize: 32,
       fontWeight: 'bold',
       marginTop: 10,
+      color: '#ffcb05',
+      backgroundColor: "#2972b8",
+      borderRadius: 12,
       position: 'absolute',
       top: 10,
       left: 10,
-
     },
     typeImage: {
       width: 50,
@@ -218,8 +220,8 @@ const getTypeImage = (type) => {
           <Text style={styles.name}>{pokemon.name}</Text>
           <Image source={getTypeImage(pokemonType)} style={styles.typeImage} />
           <Text style={styles.type}>{pokemonType.charAt(0).toUpperCase() + pokemonType.slice(1)}</Text>
-          <Text style={styles.infoText}>Altura: {pokemon.height} m</Text>
-          <Text style={styles.infoText}>Peso: {pokemon.weight} kg</Text>
+          <Text style={styles.infoText}>Altura: {(pokemon.height/10 )} m</Text>
+          <Text style={styles.infoText}>Peso:{(pokemon.weight/10 )}  kg</Text>
 
           {
             abilities.map((ability, index) => (

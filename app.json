@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0c0e11"
-      }
+      },
+      "package": "com.maru3302.pokedata"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "efcdb037-da1f-49f6-9a89-8e92e78bb8ba"
+      }
     }
   }
 }

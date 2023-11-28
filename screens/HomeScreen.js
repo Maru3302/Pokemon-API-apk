@@ -29,14 +29,13 @@ export default function HomeScreen({ navigation }) {
       })
       .then((data) => data)
       .catch((error) => {
-        console.error(error);
         return null;
       });
   }
 
   const handleSearch = () => {
     if (searchTerm) {
-      const pokemonName = searchTerm.toLowerCase().trim;
+      const pokemonName = searchTerm.toLowerCase().trim();
       buscarPokemon(pokemonName)
         .then((pokemonEncontrado) => {
           if (pokemonEncontrado) {

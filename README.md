@@ -3,6 +3,7 @@
 ## Colaboradores
 
 - Amaya Ortega Manuel Alejandro
+- Benitez Perez Jose Manuel
 - Marges Gonzalez De La Llave Eduardo
 - Ochoa Cota Erubiel
 - Vega Ornelas Annakary

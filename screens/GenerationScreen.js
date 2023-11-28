@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, Button, ScrollView, TouchableOpacity, Modal, ActivityIndicator } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
+import styles from '../styles/GenScreenstyles';
 
 export default function GenerationScreen({ route, navigation }) {
   const { generation } = route.params;
@@ -122,9 +124,9 @@ export default function GenerationScreen({ route, navigation }) {
   return (
     <ScrollView>
       {loading ? (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={styles.container}>
           <ActivityIndicator size="large" color="#0000ff" />
-          <Text style={{ marginTop: 10, fontSize: 16 }}>Cargando...</Text>
+          <Text style={{ marginTop: 10, fontSize: 16, color: 'white', }}>Cargando...</Text>
         </View>
       ) : (
         <View>
@@ -133,20 +135,24 @@ export default function GenerationScreen({ route, navigation }) {
           </TouchableOpacity>
         </View>
       )}
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Button title="<=" onPress={() => handlePagination('prev')} disabled={currentPage === 1} />
+      <View style={styles.paginationContainer}>
+      <TouchableOpacity onPress={() => handlePagination('prev')} disabled={currentPage === 1}>
+    <Icon name="chevron-left" size={30} color="white" />
+  </TouchableOpacity>
         <Text>
           <TouchableOpacity onPress={() => setShowPageOptions(true)}>
-            <Text style={{ textDecorationLine: 'underline' }}> Página {currentPage} de {totalPages}</Text>
+            <Text style={{ textDecorationLine: 'underline',color: 'white', }}> Página {currentPage} de {totalPages}</Text>
           </TouchableOpacity>
         </Text>
-        <Button title="=>" onPress={() => handlePagination('next')} disabled={currentPage === totalPages} />
+        <TouchableOpacity onPress={() => handlePagination('next')} disabled={currentPage === totalPages}>
+    <Icon name="chevron-right" size={30} color="white" />
+  </TouchableOpacity>
       </View>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+      <View style={styles.pokemonCardContainer}>
       {paginatedPokemonList.map((item) => (
         <TouchableOpacity
           key={item.name}
-          style={{ width: '50%', padding: 10, alignItems: 'center'}}
+          style={styles.pokemonCard}
           onPress={async () => {
             const pokemon = await buscarPokemon(item.name);
             if (pokemon) {
@@ -156,23 +162,23 @@ export default function GenerationScreen({ route, navigation }) {
         >
         <Image
         source={{ uri: item.imageUrl }}
-        style={{ width: '80%', aspectRatio: 1 }}
+        style={styles.pokemonImage}
       />
-      <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 5 }}>
+      <View style={styles.typeContainer}>
         {item.type.map((typeName) => (
           <Image
             key={typeName}
             source={getTypeImage(typeName)}
-            style={{ width: 20, height: 20, marginRight: 5 }}
+            style={styles.typeName}
           />
         ))}
       </View>
-      <Text style={{ textAlign: 'center', marginTop: 5, fontSize: 16 }}>{item.name}</Text>
+      <Text style={styles.pokemonName}>{item.name}</Text>
     </TouchableOpacity>
       ))}
       </View>
       <Modal visible={showSortOptions} animationType="slide">
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={styles.modalContainer}>
           <Text>Selecciona un orden a mostrar</Text>
           <View>
             <Button
@@ -200,7 +206,7 @@ export default function GenerationScreen({ route, navigation }) {
         </View>
       </Modal>
       <Modal visible={showPageOptions} animationType="slide">
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={styles.modalContainer}>
           <Text>Selecciona una página</Text>
           <View>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (

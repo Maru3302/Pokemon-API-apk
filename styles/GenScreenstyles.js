@@ -1,29 +1,81 @@
+// GenScreenStyles.js
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 0,
-  },
-  generationHeader: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  pokemonContainer: {
-    flex: 1,
-    borderWidth: 1, 
-    borderColor: 'gray', 
-    padding: 0,
+    justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 10,
+    backgroundColor: '#E32730',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#E32730',
+  },
+  loadingText: {
+    marginTop: 10,
+    fontSize: 16,
+  },
+  sortButton: {
+    marginVertical: 10,
+  },
+  paginationContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#E32730',
+  },
+  paginationButton: {
+    width: 30,
+    height: 30,
+    marginHorizontal: 10,
+  },
+  pageText: {
+    textDecorationLine: 'underline',
+  },
+  pokemonCardContainer:{
+    justifyContent: 'center', 
+    flexDirection: 'row', 
+    flexWrap: 'wrap',
+    alignSelf: 'center', 
+    backgroundColor: '#E32730', 
+  },
+  pokemonCard: {
+    width: '40%',
+    margin: 10,
+    alignItems: 'center',
+    backgroundColor: '#63C2E8',
+    borderRadius: 25,
   },
   pokemonImage: {
-    width: 60,
-    height: 60,
-    marginBottom: 5,
+    width: '80%',
+    aspectRatio: 1,
+  },
+  typeContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 5,
+  },
+  typeName: {
+    width: 20,
+    height: 20,
+    marginRight: 5,
   },
   pokemonName: {
-    fontSize: 18,
+    textAlign: 'center',
+    marginTop: 5,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalText: {
+    margin: 30,
   },
 });
+
+export default styles;

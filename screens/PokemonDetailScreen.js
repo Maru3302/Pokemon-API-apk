@@ -164,6 +164,7 @@ const getTypeImage = (type) => {
       flex: 1,
       alignItems: 'relative',
       justifyContent: 'center',
+
     },
     card: {
       flex: 1,

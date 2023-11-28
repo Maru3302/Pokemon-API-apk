@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Button} from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet} from 'react-native';
 import FavoritosButton from '../styles/FavoritosButton';
 import ImageBack from '../assets/BackGroundImage.jpg';
 

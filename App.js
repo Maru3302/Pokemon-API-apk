@@ -9,6 +9,7 @@ import PokemonNotFound from './screens/PokemonNotFound';
 const Stack = createStackNavigator();
 
 function App() {
+  
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
